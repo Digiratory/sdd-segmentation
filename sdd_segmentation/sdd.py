@@ -1,6 +1,7 @@
 import numpy as np
 import scipy.fft
 from scipy.signal import find_peaks
+from typing import List
 
 
 def compute_slope(x: np.array, y: np.array) -> float:
@@ -13,7 +14,7 @@ def compute_slope(x: np.array, y: np.array) -> float:
     return k1
 
 
-def sdd_threshold_selection(img: np.array, n_fit: int) -> list[float]:
+def sdd_threshold_selection(img: np.array, n_fit: int) -> List[float]:
     """
 
 
@@ -23,7 +24,7 @@ def sdd_threshold_selection(img: np.array, n_fit: int) -> list[float]:
         n_fit (int): approximation order for the derriative estimation
 
     Returns:
-        list[float]: list with threshholds
+        List[float]: list with threshholds
     """
 
     # Step 1. The gray-scale values of the image

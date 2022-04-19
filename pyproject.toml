@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "sdd-segmentation"
-version = "0.1.0-alpha.1"
+version = "0.1.0-alpha.2"
 description = "The python implementation of algorithm proposed by Z. Wang, 'A New Approach for Segmentation and Quantification of Cells or Nanoparticles,' in IEEE Transactions on Industrial Informatics, vol. 12, no. 3, pp. 962-971, June 2016, DOI: 10.1109/TII.2016."
 authors = ["Aleksandr Sinitca <siniza.s.94@gmail.com>"]
 license = "BSD-3-Clause"
