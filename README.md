@@ -3,15 +3,10 @@
 The python implementation of algorithm proposed by Z. Wang, "A New Approach for Segmentation and Quantification of Cells or Nanoparticles," in IEEE Transactions on Industrial Informatics, vol. 12, no. 3, pp. 962-971, June 2016, DOI: 10.1109/TII.2016.
 
 ## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
 
 ## Badges
 
 TODO: Add bagdes https://shields.io/
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
 ## Installation
 
 You can install ``sdd-segmentation`` directly from PyPi via ``pip``:
@@ -21,7 +16,16 @@ You can install ``sdd-segmentation`` directly from PyPi via ``pip``:
 ```
 
 ## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+
+```python
+import cv2
+from sdd_segmentation.sdd import sdd_threshold_selection
+
+img_np = cv2.imread("image.png")
+T = sdd_threshold_selection(img_np.astype(float), 15)
+print(T)
+th_image_np = img_np > T[-1]
+```
 
 ## License
 
@@ -46,6 +50,3 @@ AND original [work](https://doi.org/10.1109/TII.2016.2542043):
     doi={10.1109/TII.2016.2542043}
 }
 ```
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
