@@ -31,15 +31,24 @@ th_image_np = img_np > T[-1]
 
 This software is licensed under the BSD 3-Clause License.
 
-If you use this software in your scientific research, please cite our paper:
+If you use this software in your scientific research, please cite our [paper](https://doi.org/10.5194/isprs-archives-XLVIII-2-W3-2023-233-2023):
 
 ```bibtex
-
+@Article{isprs-archives-XLVIII-2-W3-2023-233-2023,
+    author = {Sinitca, A. M. and Lyanova, A. I. and Kaplun, D. I. and Zelenikhin, P. V. and Imaev, R. G. and Gafurov, A. M. and Usmanov, B. M. and Tishin, D. V. and Kayumov, A. R. and Bogachev, M. I.},
+    title = {MULTI-CLASS SEGMENTATION OF HETEROGENEOUS AREAS IN BIOMEDICAL AND ENVIRONMENTAL IMAGES BASED ON THE ASSESSMENT OF LOCAL EDGE DENSITY},
+    journal = {The International Archives of the Photogrammetry, Remote Sensing and Spatial Information Sciences},
+    volume = {XLVIII-2/W3-2023},
+    year = {2023},
+    pages = {233--238},
+    url = {https://isprs-archives.copernicus.org/articles/XLVIII-2-W3-2023/233/2023/},
+    doi = {10.5194/isprs-archives-XLVIII-2-W3-2023-233-2023}
+}
 ```
 
 AND original [work](https://doi.org/10.1109/TII.2016.2542043):
 ```bibtex
-@ARTICLE{Wang2016,
+@Article{Wang2016,
     author={Wang, ZhenZhou},
     journal={IEEE Transactions on Industrial Informatics}, 
     title={A New Approach for Segmentation and Quantification of Cells or Nanoparticles}, 
