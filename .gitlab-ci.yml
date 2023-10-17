@@ -1,0 +1,42 @@
+# You can override the included template(s) by including variable overrides
+# SAST customization: https://docs.gitlab.com/ee/user/application_security/sast/#customizing-the-sast-settings
+# Secret Detection customization: https://docs.gitlab.com/ee/user/application_security/secret_detection/#customizing-settings
+# Container Scanning customization: https://docs.gitlab.com/ee/user/application_security/container_scanning/#customizing-the-container-scanning-settings
+# Note that environment variables can be set in several places
+# See https://docs.gitlab.com/ee/ci/variables/#cicd-variable-precedence
+stages:
+  #- test
+  - build
+
+#sast:
+#  stage: test
+#include:
+#- template: Security/SAST.gitlab-ci.yml
+
+image: python:latest
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+
+cache:
+  paths:
+    - .cache/pip
+    - venv/
+before_script:
+  - python --version
+  - pip install virtualenv
+  - virtualenv venv
+  - source venv/bin/activate
+  - pip3 install poetry
+  - poetry self add "poetry-dynamic-versioning[plugin]"
+
+build-whl-package:
+  stage: build
+  script:
+    - poetry config repositories.gitlab https://gitlab.com/api/v4/projects/${CI_PROJECT_ID}/packages/pypi
+    - poetry config http-basic.gitlab gitlab-ci-token "$CI_JOB_TOKEN"
+    - poetry version $(git describe --tags --abbrev=0)
+    - poetry build
+    - poetry publish --repository gitlab
+    - poetry publish  --username=__token__ --password=$PYPI_KEY
+  only:
+    - main
