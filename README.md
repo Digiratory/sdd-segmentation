@@ -6,7 +6,8 @@ The python implementation of algorithm proposed by Z. Wang, "A New Approach for 
 
 ## Badges
 
-TODO: Add bagdes https://shields.io/
+![PyPI - Downloads](https://img.shields.io/pypi/dm/sdd-segmentation)
+
 ## Installation
 
 You can install ``sdd-segmentation`` directly from PyPi via ``pip``:
